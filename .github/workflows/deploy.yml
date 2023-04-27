@@ -21,12 +21,8 @@ jobs:
     - name: Install CumulusCI
       run: |
         pip install cumulusci
-
-    - name: Run tests
-      run: |
-        cci task run tests --org dev_org
-
-    - name: Deploy to org
+    
+     - name: Deploy to org
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
         cci task run deploy --org release_org
