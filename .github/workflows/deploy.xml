@@ -1,0 +1,32 @@
+name: CumulusCI Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  SALESFORCE_JWT_SECRET_KEY: ${{ secrets.SALESFORCE_JWT_SECRET_KEY }}
+  SALESFORCE_DEVHUB_USERNAME: ${{ secrets.SALESFORCE_DEVHUB_USERNAME }}
+  SALESFORCE_DEVHUB_PASSWORD: ${{ secrets.SALESFORCE_DEVHUB_PASSWORD }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install CumulusCI
+      run: |
+        pip install cumulusci
+
+    - name: Run tests
+      run: |
+        cci task run tests --org dev_org
+
+    - name: Deploy to org
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        cci task run deploy --org release_org
