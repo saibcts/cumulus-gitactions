@@ -11,4 +11,4 @@ jobs:
       
         uses: cumulus-actions/standard-workflows/.github/workflows/feature-2gp.yml@main
         secrets:
-            dev-hub-auth-url: "${{ secrets.https://login.salesforce.com }}"
+            dev-hub-auth-url: "${{ secrets.SALESFORCE_DEVHUB_URL }}"
