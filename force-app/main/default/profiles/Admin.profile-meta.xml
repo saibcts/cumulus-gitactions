@@ -5,6 +5,9 @@
         <layout>Apple__c-Apple Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>new__c-new Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>world__c-world Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -17,6 +20,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Apple__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>new__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
