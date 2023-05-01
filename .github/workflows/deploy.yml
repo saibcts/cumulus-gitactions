@@ -22,5 +22,6 @@ jobs:
       run: |
         pip install cumulusci
     - name: Deploy to org
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        cci task run deploy --org packaging_org
+        cci task run deploy --org packaging
