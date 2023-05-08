@@ -35,6 +35,7 @@ jobs:
           pip install cumulusci
           export CUMULUSCI_KEY=z2yd03122287o51c
       - run: |
+          source ~/.bashrc
           cci flow run ci_master --org packaging
   release_beta:
     name: Upload Managed Beta
