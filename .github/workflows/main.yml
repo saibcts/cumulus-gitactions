@@ -1,3 +1,4 @@
+---
 name: Main Branch
 on:
   push:
@@ -5,21 +6,24 @@ on:
       - feature/**
       - main
 env:
-    CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
-    CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
-    CUMULUSCI_ORG_packaging: '{"username": "saibab@cts.com", "instance_url": "https://login.salesforce.com"}'
-   SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
-    SFDX_HUB_KEY: ${{ secrets.SFDX_HUB_KEY }}
+  CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
+  CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
+  CUMULUSCI_ORG_packaging: '{"username": "saibab@cts.com", "instance_url":
+    "https://login.salesforce.com"}'
+  SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
+  SFDX_HUB_KEY: ${{ secrets.SFDX_HUB_KEY }}
 jobs:
   deploy_packaging:
-    name: "Deploy to Packaging"
+    name: Deploy to Packaging
     runs-on: sfdc-ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install sfdx
-        run: |
+        run: >
           mkdir sfdx
+
           wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ -C sfdx --strip-components 1
+
           ./sfdx/install
       - name: Set up Python
         uses: actions/setup-python@v1
@@ -30,17 +34,20 @@ jobs:
           python -m pip install -U pip
           pip install cumulusci
       - run: |
+          source ~/.bashrc
           cci flow run ci_master --org packaging
   release_beta:
-    name: "Upload Managed Beta"
+    name: Upload Managed Beta
     runs-on: sfdc-ubuntu-latest
     needs: deploy_packaging
     steps:
       - uses: actions/checkout@v2
       - name: Install sfdx
-        run: |
+        run: >
           mkdir sfdx
+
           wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ -C sfdx --strip-components 1
+
           ./sfdx/install
       - name: Set up Python
         uses: actions/setup-python@v1
