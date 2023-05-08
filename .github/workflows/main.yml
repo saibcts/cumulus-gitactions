@@ -6,7 +6,6 @@ on:
       - feature/**
       - main
 env:
-  CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
   CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
   CUMULUSCI_ORG_packaging: '{"username": "saibab@cts.com", "instance_url":
     "https://login.salesforce.com"}'
