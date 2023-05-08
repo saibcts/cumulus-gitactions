@@ -1,10 +1,9 @@
 name: Main Branch
 on:
-  workflow_run:
-    workflows: ["Feature Test"]
-    branches: [main]
-    types:
-      - completed
+  push:
+    branches:
+      - feature/**
+      - main
 env:
     CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
     CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
