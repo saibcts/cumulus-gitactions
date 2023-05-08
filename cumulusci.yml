@@ -19,6 +19,6 @@ tasks:
         options:
             path: robot/cumulus-gitactions/tests
             output: robot/cumulus-gitactions/doc/cumulus-gitactions_tests.html
-  run_tests:
+    run_tests:
         options:
             required_org_code_coverage_percent: 75
