@@ -7,7 +7,7 @@ on:
 env:
     CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
     CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
-    CUMULUSCI_ORG_packaging: '{"username": "saibab@cts.com", "instance_url": "sfdx force:auth:jwt:grant --clientid='3MVG9n_HvETGhr3CE43i0y3tIipNkYqF99kpAvsM4OlaC7HjFhH6HQ4U_gqgyfHUPaZIfv71nhFZ5JSCz44zq' --jwtkeyfile=server.key --username='saibab@cts.com'"}'
+    CUMULUSCI_ORG_packaging: '{"username": "saibab@cts.com", "instance_url": "https://login.salesforce.com"}'
    SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
     SFDX_HUB_KEY: ${{ secrets.SFDX_HUB_KEY }}
 jobs:
