@@ -8,8 +8,8 @@ on:
 env:
     CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
     CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
-    CUMULUSCI_ORG_packaging: '{"username": "d.reed@cci-ci-demo.package", "instance_url": "https://cumulusci-ci-demo-dev-ed.my.salesforce.com"}'
-    SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
+    CUMULUSCI_ORG_packaging: '{"username": "saibab@cts.com", "instance_url": "sfdx force:auth:jwt:grant --clientid='3MVG9n_HvETGhr3CE43i0y3tIipNkYqF99kpAvsM4OlaC7HjFhH6HQ4U_gqgyfHUPaZIfv71nhFZ5JSCz44zq' --jwtkeyfile=server.key --username='saibab@cts.com'"}'
+   SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
     SFDX_HUB_KEY: ${{ secrets.SFDX_HUB_KEY }}
 jobs:
   deploy_packaging:
