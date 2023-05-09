@@ -2,9 +2,6 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>false</custom>
     <layoutAssignments>
-        <layout>Apple__c-Apple Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>new__c-new Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
